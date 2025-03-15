@@ -9,11 +9,11 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult Login(string Email, string Password)
+    public IActionResult Login(string UserName, string Password)
     {
-        if (Email == "admin@example.com" && Password == "123456") // 模拟登录
+        if (UserName == "admin@example.com" && Password == "123456")
         {
-            return RedirectToAction("Index", "Home"); // 登录成功跳转
+            return RedirectToAction("Index", "Home");
         }
 
         ViewData["Error"] = "邮箱或密码错误";
