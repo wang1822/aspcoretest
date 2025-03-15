@@ -14,9 +14,8 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid)
         {
-            ViewData["Error"] = "邮箱或密码错误";
+            return View(user);
         }
-
         
         return View();
     }

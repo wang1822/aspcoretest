@@ -5,14 +5,24 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 350px; border-radius: 12px;">
         <h3 class="text-center mb-3">用户登录</h3>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+            </div>
+        }
+
         <form asp-controller="Account" asp-action="Login" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">账号</label>
-                <input type="username" class="form-control" id="username" name="Username" required placeholder="输入账号">
+                <input type="username" class="form-control" id="username" name="Username" required placeholder="输入账号"
+                    value="@Model?.Username">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">密码</label>
-                <input type="password" class="form-control" id="password" name="Password" required placeholder="输入密码">
+                <input type="password" class="form-control" id="password" name="Password" required placeholder="输入密码"
+                    accept="password" value="@Model?.Password">
             </div>
             <button type="submit" class="btn btn-primary w-100">登录</button>
         </form>

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "bGR1VhZmd1PYE4T/rfQz/bK/FS6AgqZRfrpbw1y4CgboDWBTlCU2OJ4l+/nqJQ/9C5ClQLCgSahB7frva8Y2Vw==",
+  "dgSpecHash": "48TFXpsIBQ3f/R1UvICXh37BEwXo7UifWLz7rLUjlDnPcQYlzCvet1y02O3MRFDOjHS5pMAGln6TLh8bPBppXA==",
   "success": true,
   "projectFilePath": "/home/yiqiwang/文档/MyC#/AspCoreStudy/AspCoreStudy.csproj",
   "expectedPackageFiles": [
+    "/home/yiqiwang/.nuget/packages/autofac/6.0.0/autofac.6.0.0.nupkg.sha512",
+    "/home/yiqiwang/.nuget/packages/autofac.extensions.dependencyinjection/6.0.0/autofac.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/microsoft.entityframeworkcore/6.0.0/microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.0/microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
