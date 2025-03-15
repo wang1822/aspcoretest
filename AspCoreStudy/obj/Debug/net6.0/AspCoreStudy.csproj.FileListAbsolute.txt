@@ -1,3 +1,11 @@
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.csproj.AssemblyReference.cache
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.GeneratedMSBuildEditorConfig.editorconfig
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.AssemblyInfoInputs.cache
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.AssemblyInfo.cs
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.csproj.CoreCompileInputs.cache
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.MvcApplicationPartsAssemblyInfo.cache
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.RazorAssemblyInfo.cache
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.RazorAssemblyInfo.cs
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net6.0/appsettings.Development.json
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net6.0/appsettings.json
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net6.0/AspCoreStudy.staticwebassets.runtime.json
@@ -16,14 +24,6 @@
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net6.0/MySqlConnector.dll
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.csproj.AssemblyReference.cache
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.GeneratedMSBuildEditorConfig.editorconfig
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.AssemblyInfoInputs.cache
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.AssemblyInfo.cs
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.csproj.CoreCompileInputs.cache
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.MvcApplicationPartsAssemblyInfo.cache
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.RazorAssemblyInfo.cache
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/AspCoreStudy.RazorAssemblyInfo.cs
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/staticwebassets.build.json
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/staticwebassets.development.json
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net6.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css

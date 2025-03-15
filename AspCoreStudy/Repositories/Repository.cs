@@ -11,7 +11,7 @@ namespace AspCoreStudy.Repositories
         //数据库上下文
         protected readonly my_databaseContext _context;
         //数据集
-        private readonly DbSet<T> _dbSet;
+        protected readonly DbSet<T> _dbSet;
 
         //构造函数
         public Repository(my_databaseContext context)
