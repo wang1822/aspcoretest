@@ -1,3 +1,4 @@
+using AspCoreStudy.Models;
 using Microsoft.AspNetCore.Mvc;
 
 public class AccountController : Controller
@@ -9,14 +10,14 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult Login(string UserName, string Password)
+    public IActionResult Login(User user)
     {
-        if (UserName == "admin@example.com" && Password == "123456")
+        if (!ModelState.IsValid)
         {
-            return RedirectToAction("Index", "Home");
+            ViewData["Error"] = "邮箱或密码错误";
         }
 
-        ViewData["Error"] = "邮箱或密码错误";
+        
         return View();
     }
 }

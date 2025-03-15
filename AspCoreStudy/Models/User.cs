@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace AspCoreStudy.Models
 {
+    [ModelMetadataType(typeof(UserMetadata))]
     public partial class User
     {
         public int Id { get; set; }
