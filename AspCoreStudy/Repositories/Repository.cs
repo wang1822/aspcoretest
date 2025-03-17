@@ -22,7 +22,7 @@ namespace AspCoreStudy.Repositories
         }
 
         //实现创建数据
-        public async Task CreateAsync(T entity)
+        public async Task AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();

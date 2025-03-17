@@ -14,5 +14,7 @@ namespace AspCoreStudy.Repositories
         Task<User> GetUserByUsernameAsync(string username);
         // 分配角色
         Task AssignRoleAsync(int userId, int roleId);
+        // 获取用户权限
+        Task<List<string>> GetUserPermissionsAsync(int userId);
     }
 }

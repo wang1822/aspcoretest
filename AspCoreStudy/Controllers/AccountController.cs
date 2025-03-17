@@ -1,20 +1,18 @@
 using AspCoreStudy.Models;
-using AspCoreStudy.Repositories;
 using AspCoreStudy.Services;
 using Microsoft.AspNetCore.Mvc;
 
 public class AccountController : Controller
 {
     //注入用户仓储
-    private readonly IUserRepository _userRepository;
-    private readonly IRoleRepository _roleRepository;
+    private readonly IUserService _userService;
+    private readonly IRoleService _roleService;
     private readonly TokenService _tokenService;
 
-    public AccountController(IUserRepository userRepository, IRoleRepository roleRepository
-    , TokenService tokenService)
+    public AccountController(IUserService userService, IRoleService roleService, TokenService tokenService)
     {
-        _userRepository = userRepository;
-        _roleRepository = roleRepository;
+        _userService = userService;
+        _roleService = roleService;
         _tokenService = tokenService;
     }
 
@@ -40,7 +38,7 @@ public class AccountController : Controller
         }
 
         //检查用户名是否已存在
-        var existingUser = await _userRepository.GetUserByUsernameAsync(user.Username);
+        var existingUser = await _userService.FetchUserByUsernameAsync(user.Username);
         if (existingUser != null)
         {
             ModelState.AddModelError("Username", "用户名已存在");
@@ -48,15 +46,13 @@ public class AccountController : Controller
         }
 
         // 创建新用户
-        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash); // 使用 BCrypt 哈希密码
-        user.CreatedAt = DateTime.Now;
-        await _userRepository.CreateAsync(user);
+        await _userService.CreateAsync(user);
 
         // 获取 user 角色
-        var userRole = await _roleRepository.GetRoleByNameAsync("user");
+        var userRole = await _roleService.FetchRoleByNameAsync("user");
 
         // 赋予 user 角色
-        await _userRepository.AssignRoleAsync(user.Id, userRole.Id);
+        await _userService.AssignRoleToUserAsync(user.Id, userRole.Id);
 
         return RedirectToAction("Login", "Account");
     }
@@ -70,7 +66,7 @@ public class AccountController : Controller
             return View(user);
         }
 
-        var existingUser = await _userRepository.GetUserByUsernameAsync(user.Username, user.PasswordHash);
+        var existingUser = await _userService.AuthenticateUserAsync(user.Username, user.PasswordHash);
 
         if (existingUser == null)
         {
@@ -79,8 +75,11 @@ public class AccountController : Controller
             return View(user);
         }
 
+        // 获取用户权限
+        var permissions = await _userService.FetchPermissionsForUserAsync(existingUser.Id);
+
         //生成token
-        var token = _tokenService.GenerateToken(user.Username);
+        var token = _tokenService.GenerateToken(user.Username, permissions);
 
         // 将 Token 保存到 Cookie 中
         Response.Cookies.Append("AuthToken", token, new CookieOptions

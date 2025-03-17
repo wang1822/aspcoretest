@@ -15,13 +15,24 @@ namespace AspCoreStudy.Repositories
         // 分配角色
         public async Task AssignRoleAsync(int userId, int roleId)
         {
-            var userRole = new Dictionary<string, object>
+            var user = await _context.Users
+                .Include(u => u.Roles)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            var role = await _context.Roles.FindAsync(roleId);
+
+            if (!user.Roles.Contains(role))
             {
-                { "UserId", userId },
-                { "RoleId", roleId }
-            };
-            _context.Set<Dictionary<string, object>>("UserRole").Add(userRole);
-            await _context.SaveChangesAsync();
+                user.Roles.Add(role);
+                await _context.SaveChangesAsync();
+            }
+            // var userRole = new Dictionary<string, object>
+            // {
+            //     { "UserId", userId },
+            //     { "RoleId", roleId }
+            // };
+            // _context.Set<Dictionary<string, object>>("UserRole").Add(userRole);
+            // await _context.SaveChangesAsync();
         }
 
         // 根据账号查询用户
@@ -34,6 +45,18 @@ namespace AspCoreStudy.Repositories
         public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
+        }
+
+        //根据用户Id查询用户权限
+        public async Task<List<string>> GetUserPermissionsAsync(int userId)
+        {
+            return await _context.Users
+                .Where(u => u.Id == userId)
+                .SelectMany(u => u.Roles)
+                .SelectMany(r => r.Permissions)
+                .Select(p => p.Name)
+                .Distinct()
+                .ToListAsync();
         }
     }
 }

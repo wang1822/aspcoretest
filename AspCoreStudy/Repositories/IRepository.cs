@@ -10,7 +10,7 @@ namespace AspCoreStudy.Repositories
         //根据Id获取数据
         Task<T> GetByIdAsync(int id);
         //创建数据
-        Task CreateAsync(T entity);
+        Task AddAsync(T entity);
         //更新数据
         Task UpdateAsync(int id, T entity);
         //删除数据

@@ -1,9 +1,11 @@
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
+/**
+    * TokenService 类
+*/
 namespace AspCoreStudy.Services
 {
     public class TokenService
@@ -15,13 +17,21 @@ namespace AspCoreStudy.Services
             _secretKey = secretKey;
         }
 
-        public string GenerateToken(string username)
+        // 生成 Token
+        public string GenerateToken(string username, List<string> permissions)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_secretKey);
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, username)
+            };
+
+            claims.AddRange(permissions.Select(permission => new Claim("Permission", permission)));
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
