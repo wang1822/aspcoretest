@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using AspCoreStudy.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,14 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
                     || t.Namespace.Contains("AspCoreStudy.Services")))
                     .AsImplementedInterfaces()
                     .InstancePerLifetimeScope();  // 设置生命周期（你也可以使用 InstancePerDependency() 或 SingleInstance()）
+
+// 从配置中获取 SecretKey
+    var secretKey = builder.Configuration["TokenSettings:SecretKey"];
+
+                    // 注册 TokenService
+    containerBuilder.RegisterType<TokenService>()
+                    .WithParameter("secretKey", secretKey)
+                    .SingleInstance();  // 设置为单例
 });
 
 // 配置 Kestrel 服务器
