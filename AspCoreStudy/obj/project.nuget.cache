@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4cegccVKXI8d7Hj3kvlbNjvyz1rsZX3cs6MsROwWfgj95HLWaG83FdXVdtLeOGCxS4fCKs/AvxVXh3732JiDaQ==",
+  "dgSpecHash": "sRrk4IbfA8JupQBH2r8cmZoqy6115K3nw3PpjuVaEx29u1tPojGdyCPsxuNjiusgvLdMm5faRs8ShMrKggq73w==",
   "success": true,
   "projectFilePath": "/home/yiqiwang/文档/MyC#/AspCoreStudy/AspCoreStudy.csproj",
   "expectedPackageFiles": [
     "/home/yiqiwang/.nuget/packages/autofac/6.0.0/autofac.6.0.0.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/autofac.extensions.dependencyinjection/6.0.0/autofac.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "/home/yiqiwang/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/microsoft.bcl.asyncinterfaces/8.0.0/microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "/home/yiqiwang/.nuget/packages/microsoft.bcl.memory/9.0.0/microsoft.bcl.memory.9.0.0.nupkg.sha512",

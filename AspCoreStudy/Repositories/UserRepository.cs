@@ -10,11 +10,30 @@ namespace AspCoreStudy.Repositories
     public class UserRepository : Repository<User>, IUserRepository
     {
         //构造函数
-        public UserRepository(my_databaseContext context) : base(context){}
+        public UserRepository(ApplicationDbContext context) : base(context) { }
 
+        // 分配角色
+        public async Task AssignRoleAsync(int userId, int roleId)
+        {
+            var userRole = new Dictionary<string, object>
+            {
+                { "UserId", userId },
+                { "RoleId", roleId }
+            };
+            _context.Set<Dictionary<string, object>>("UserRole").Add(userRole);
+            await _context.SaveChangesAsync();
+        }
+
+        // 根据账号查询用户
         public async Task<User> GetUserByUsernameAsync(string username, string password)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
+            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password);
+        }
+
+        // 根据账号查询用户
+        public async Task<User> GetUserByUsernameAsync(string username)
+        {
+            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
         }
     }
 }

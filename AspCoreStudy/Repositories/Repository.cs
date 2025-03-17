@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using AspCoreStudy.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,12 +10,12 @@ namespace AspCoreStudy.Repositories
     public class Repository<T> : IRepository<T> where T : class
     {
         //数据库上下文
-        protected readonly my_databaseContext _context;
+        protected readonly ApplicationDbContext _context;
         //数据集
         protected readonly DbSet<T> _dbSet;
 
         //构造函数
-        public Repository(my_databaseContext context)
+        public Repository(ApplicationDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

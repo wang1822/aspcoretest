@@ -3,18 +3,18 @@ using AspCoreStudy.Repositories;
 using AspCoreStudy.Services;
 using Microsoft.AspNetCore.Mvc;
 
-//实现restful风格的api
-// [Route("api/auth")]
-// [ApiController]
 public class AccountController : Controller
 {
     //注入用户仓储
     private readonly IUserRepository _userRepository;
+    private readonly IRoleRepository _roleRepository;
     private readonly TokenService _tokenService;
 
-    public AccountController(IUserRepository userRepository, TokenService tokenService)
+    public AccountController(IUserRepository userRepository, IRoleRepository roleRepository
+    , TokenService tokenService)
     {
         _userRepository = userRepository;
+        _roleRepository = roleRepository;
         _tokenService = tokenService;
     }
 
@@ -24,6 +24,44 @@ public class AccountController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    //注册
+    [HttpPost]
+    public async Task<IActionResult> Register(User user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(user);
+        }
+
+        //检查用户名是否已存在
+        var existingUser = await _userRepository.GetUserByUsernameAsync(user.Username);
+        if (existingUser != null)
+        {
+            ModelState.AddModelError("Username", "用户名已存在");
+            return View(user);
+        }
+
+        // 创建新用户
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash); // 使用 BCrypt 哈希密码
+        user.CreatedAt = DateTime.Now;
+        await _userRepository.CreateAsync(user);
+
+        // 获取 user 角色
+        var userRole = await _roleRepository.GetRoleByNameAsync("user");
+
+        // 赋予 user 角色
+        await _userRepository.AssignRoleAsync(user.Id, userRole.Id);
+
+        return RedirectToAction("Login", "Account");
+    }
+
+    //登录
     [HttpPost]
     public async Task<IActionResult> Login(User user)
     {
@@ -32,12 +70,12 @@ public class AccountController : Controller
             return View(user);
         }
 
-        var existingUser = await _userRepository.GetUserByUsernameAsync(user.Username, user.Password);
+        var existingUser = await _userRepository.GetUserByUsernameAsync(user.Username, user.PasswordHash);
 
         if (existingUser == null)
         {
             // Add error message for incorrect username or password
-            ModelState.AddModelError(string.Empty, "用户名或密码错误");
+            ModelState.AddModelError("Username", "用户名或密码错误");
             return View(user);
         }
 

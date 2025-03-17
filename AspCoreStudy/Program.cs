@@ -38,7 +38,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // 将 MySQL 的 DbContext 添加到依赖注入容器中
-builder.Services.AddDbContext<my_databaseContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.41-mysql"))
 );
 
