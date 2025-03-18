@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AspCoreStudy.Repositories
 {
-    public class RoleRepository : Repository<Role>, IRoleRepository
+    /// <ihneritdoc />
+    public class RoleRepository(ApplicationDbContext context) : Repository<Role>(context), IRoleRepository
     {
-        public RoleRepository(ApplicationDbContext context) : base(context) { }
-
-        // 根据角色名称获取角色
+        /// <ihneritdoc />
         public async Task<Role> GetRoleByNameAsync(string roleName)
         {
-            return await _dbSet.FirstOrDefaultAsync(r => r.Name == roleName);
+            return await _dbSet.FirstOrDefaultAsync(r => r.Name == roleName) 
+                   ?? throw new InvalidOperationException($"未找到名称为“{roleName}”的角色。");
         }
     }
 }

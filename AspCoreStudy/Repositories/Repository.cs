@@ -1,34 +1,29 @@
-using System.Linq.Expressions;
 using AspCoreStudy.Models;
 using Microsoft.EntityFrameworkCore;
 
-/**
-* 实现通用仓储类
-*/
 namespace AspCoreStudy.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class
+    /// <inheritdoc />
+    public class Repository<T>(ApplicationDbContext context) : IRepository<T> where T : class
     {
-        //数据库上下文
-        protected readonly ApplicationDbContext _context;
-        //数据集
-        protected readonly DbSet<T> _dbSet;
+        
+        /// <summary>
+        /// 用于访问数据库的数据库上下文。
+        /// </summary>
+        protected readonly ApplicationDbContext _context = context;
+        /// <summary>
+        /// 表示实体类型<typeparamref name="T"/>的数据库集。
+        /// </summary>
+        protected readonly DbSet<T> _dbSet = context.Set<T>();
 
-        //构造函数
-        public Repository(ApplicationDbContext context)
-        {
-            _context = context;
-            _dbSet = context.Set<T>();
-        }
-
-        //实现创建数据
+        /// <inheritdoc/>
         public async Task AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        //实现删除数据
+        /// <inheritdoc/>
         public async Task DeleteAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
@@ -39,19 +34,20 @@ namespace AspCoreStudy.Repositories
             }
         }
 
-        //实现获取所有数据
+        /// <inheritdoc/>
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        //实现根据Id获取数据
+        /// <inheritdoc/>
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            return await _dbSet.FindAsync(id) 
+            ?? throw new InvalidOperationException($"未找到具有 ID {id} 的实体。");
         }
 
-        //实现更新数据
+        /// <inheritdoc/>
         public async Task UpdateAsync(int id, T entity)
         {
             _dbSet.Update(entity);

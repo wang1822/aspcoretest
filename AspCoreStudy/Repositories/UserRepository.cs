@@ -1,18 +1,13 @@
 using AspCoreStudy.Models;
 using Microsoft.EntityFrameworkCore;
 
-/**
-* 实现用户数据操作接口
-*/
 namespace AspCoreStudy.Repositories
 {
-    // 实现用户个性化的类
-    public class UserRepository : Repository<User>, IUserRepository
+    /// <inheritdoc/>
+    public class UserRepository(ApplicationDbContext context) : Repository<User>(context), IUserRepository
     {
-        //构造函数
-        public UserRepository(ApplicationDbContext context) : base(context) { }
 
-        // 分配角色
+        /// <inheritdoc/>
         public async Task AssignRoleAsync(int userId, int roleId)
         {
             var user = await _context.Users
@@ -21,33 +16,28 @@ namespace AspCoreStudy.Repositories
 
             var role = await _context.Roles.FindAsync(roleId);
 
-            if (!user.Roles.Contains(role))
+            if (user != null && role != null && !user.Roles.Contains(role))
             {
                 user.Roles.Add(role);
                 await _context.SaveChangesAsync();
             }
-            // var userRole = new Dictionary<string, object>
-            // {
-            //     { "UserId", userId },
-            //     { "RoleId", roleId }
-            // };
-            // _context.Set<Dictionary<string, object>>("UserRole").Add(userRole);
-            // await _context.SaveChangesAsync();
         }
 
-        // 根据账号查询用户
+        /// <inheritdoc/>
         public async Task<User> GetUserByUsernameAsync(string username, string password)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password);
+            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password) 
+                   ?? throw new InvalidOperationException("未找到用户。");
         }
 
-        // 根据账号查询用户
+        /// <inheritdoc/>
         public async Task<User> GetUserByUsernameAsync(string username)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
+            var user = await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
+            return user ?? throw new InvalidOperationException("未找到用户。");
         }
 
-        //根据用户Id查询用户权限
+        /// <inheritdoc/>
         public async Task<List<string>> GetUserPermissionsAsync(int userId)
         {
             return await _context.Users

@@ -3,21 +3,21 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-/**
-    * TokenService 类
-*/
 namespace AspCoreStudy.Services
 {
-    public class TokenService
+    /// <summary>
+    /// 提供生成和验证 JWT Token 的方法。
+    /// </summary>
+    public class TokenService(string secretKey)
     {
-        private readonly string _secretKey;
+        private readonly string _secretKey = secretKey;
 
-        public TokenService(string secretKey)
-        {
-            _secretKey = secretKey;
-        }
-
-        // 生成 Token
+        /// <summary>
+        /// 为指定用户生成包含给定权限的JWT令牌。
+        /// </summary>
+        /// <param name="username">生成令牌的用户名。</param>
+        /// <param name="permissions">要包含在令牌中的权限列表。</param>
+        /// <returns>作为字符串的JWT令牌。</returns>
         public string GenerateToken(string username, List<string> permissions)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -27,7 +27,7 @@ namespace AspCoreStudy.Services
                 new Claim(ClaimTypes.Name, username)
             };
 
-            claims.AddRange(permissions.Select(permission => new Claim("Permission", permission)));
+            claims.AddRange(permissions.Select(permission => new Claim("permissions", permission)));
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

@@ -13,17 +13,17 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     // 扫描并注册 Repositories 和 Services 文件夹中的接口和实现类
-    containerBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
-                    .Where(t => t.Namespace != null && (t.Namespace.Contains("AspCoreStudy.Repositories") 
+    _ = containerBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+                    .Where(t => t.Namespace != null && (t.Namespace.Contains("AspCoreStudy.Repositories")
                     || t.Namespace.Contains("AspCoreStudy.Services")))
                     .AsImplementedInterfaces()
                     .InstancePerLifetimeScope();  // 设置生命周期（你也可以使用 InstancePerDependency() 或 SingleInstance()）
 
-// 从配置中获取 SecretKey
+    // 从配置中获取 SecretKey
     var secretKey = builder.Configuration["TokenSettings:SecretKey"];
 
-                    // 注册 TokenService
-    containerBuilder.RegisterType<TokenService>()
+    // 注册 TokenService
+    _ = containerBuilder.RegisterType<TokenService>()
                     .WithParameter("secretKey", secretKey)
                     .SingleInstance();  // 设置为单例
 });

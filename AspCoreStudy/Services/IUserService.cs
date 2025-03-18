@@ -1,25 +1,45 @@
 using AspCoreStudy.Models;
 
-/**
-* 用户服务接口 
-*/
 namespace AspCoreStudy.Services
 {
+    /// <summary>
+    /// 提供用户管理和身份验证的方法。
+    /// </summary>
     public interface IUserService
     {
-        // 分配角色给用户
+        /// <summary>
+        /// 异步分配角色给用户。
+        /// </summary>
+        /// <param name="userId">用户的ID。</param>
+        /// <param name="roleId">要分配的角色ID。</param>
         Task AssignRoleToUserAsync(int userId, int roleId);
 
-        // 查询用户是否存在
+        /// <summary>
+        /// 异步验证用户的用户名和密码。
+        /// </summary>
+        /// <param name="username">用户的用户名。</param>
+        /// <param name="password">用户的密码。</param>
+        /// <returns>返回验证成功的用户对象。</returns>
         Task<User> AuthenticateUserAsync(string username, string password);
 
-        // 创建用户
+        /// <summary>
+        /// 异步创建一个新的用户。
+        /// </summary>
+        /// <param name="user">要创建的用户对象。</param>
         Task CreateAsync(User user);
 
-        // 获取用户权限
+        /// <summary>
+        /// 异步获取指定用户的权限列表。
+        /// </summary>
+        /// <param name="userId">用户的ID。</param>
+        /// <returns>返回包含用户权限的字符串列表。</returns>
         Task<List<string>> FetchPermissionsForUserAsync(int userId);
 
-        // 根据账号查询用户
+        /// <summary>
+        /// 异步获取指定用户名的用户。
+        /// </summary>
+        /// <param name="username">用户的用户名。</param>
+        /// <returns>返回匹配用户名的用户对象。</returns>
         Task<User> FetchUserByUsernameAsync(string username);
     }
 }
