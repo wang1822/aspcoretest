@@ -17,12 +17,15 @@ namespace AspCoreStudy.Services
         /// <inheritdoc/>
         public async Task<User> AuthenticateUserAsync(string username, string password)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
+            User user = await _userRepository.GetUserByUsernameAsync(username, password);
 
-            // if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-            //     return null; // 密码错误或用户不存在
+            if (user == null)
+                throw new UnauthorizedAccessException("密码或账号错误");
 
-            return user; // 用户验证通过，返回用户对象
+            if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
+                throw new UnauthorizedAccessException("密码或账号错误");
+
+            return user;
         }
 
         /// <inheritdoc/>
@@ -42,7 +45,12 @@ namespace AspCoreStudy.Services
         /// <inheritdoc/>
         public async Task<User> FetchUserByUsernameAsync(string username)
         {
-            return await _userRepository.GetUserByUsernameAsync(username);
+            User user = await _userRepository.GetUserByUsernameAsync(username);
+
+            if(user != null)
+                throw new UnauthorizedAccessException("用户已存在");
+
+            return user;
         }
     }
 }

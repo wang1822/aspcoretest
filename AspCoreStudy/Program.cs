@@ -2,8 +2,9 @@ using AspCoreStudy.Models;
 using Microsoft.EntityFrameworkCore;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using AspCoreStudy.Services;
+using AspCoreStudy;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,19 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.41-mysql"))
 );
+
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<GlobalExceptionFilter>(); // 注册全局异常过滤器
+});
+
+// 配置 Serilog
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console() // 输出到控制台
+    .WriteTo.File("Logs/app.log", rollingInterval: RollingInterval.Day) // 输出到文件
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

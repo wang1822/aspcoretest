@@ -26,15 +26,13 @@ namespace AspCoreStudy.Repositories
         /// <inheritdoc/>
         public async Task<User> GetUserByUsernameAsync(string username, string password)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password) 
-                   ?? throw new InvalidOperationException("未找到用户。");
+            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password);
         }
 
         /// <inheritdoc/>
         public async Task<User> GetUserByUsernameAsync(string username)
         {
-            var user = await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
-            return user ?? throw new InvalidOperationException("未找到用户。");
+            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);
         }
 
         /// <inheritdoc/>

@@ -51,12 +51,7 @@ namespace AspCoreStudy.Controllers
             }
 
             //检查用户名是否已存在
-            User existingUser = await _userService.FetchUserByUsernameAsync(user.Username);
-            if (existingUser != null)
-            {
-                ModelState.AddModelError("Username", "用户名已存在");
-                return View(user);
-            }
+            await _userService.FetchUserByUsernameAsync(user.Username);
 
             // 创建新用户
             await _userService.CreateAsync(user);
@@ -86,16 +81,15 @@ namespace AspCoreStudy.Controllers
 
             User existingUser = await _userService.AuthenticateUserAsync(user.Username, user.PasswordHash);
 
-            if (existingUser == null)
-            {
-                // Add error message for incorrect username or password
-                ModelState.AddModelError("Username", "用户名或密码错误");
-                return View(user);
-            }
+            // if (existingUser == null)
+            // {
+            //     // Add error message for incorrect username or password
+            //     ModelState.AddModelError("Username", "用户名或密码错误");
+            //     return View(user);
+            // }
 
             // 获取用户权限
             List<string> permissions = await _userService.FetchPermissionsForUserAsync(existingUser.Id);
-
             //生成token
             var token = _tokenService.GenerateToken(user.Username, permissions);
 

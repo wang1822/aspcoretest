@@ -6,6 +6,7 @@
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/AspCoreStudy.runtimeconfig.json
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/AspCoreStudy.dll
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/AspCoreStudy.pdb
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/AspCoreStudy.xml
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Autofac.dll
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Autofac.Extensions.DependencyInjection.dll
 /home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/BCrypt.Net-Next.dll
@@ -108,8 +109,16 @@
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/AspCoreStudy.csproj.CopyComplete
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/AspCoreStudy.dll
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/refint/AspCoreStudy.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/AspCoreStudy.xml
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/AspCoreStudy.pdb
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/AspCoreStudy.genruntimeconfig.cache
 /home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/ref/AspCoreStudy.dll
-/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/AspCoreStudy.xml
-/home/yiqiwang/文档/MyC#/AspCoreStudy/obj/Debug/net8.0/AspCoreStudy.xml
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.AspNetCore.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Formatting.Compact.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Settings.Configuration.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
+/home/yiqiwang/文档/MyC#/AspCoreStudy/bin/Debug/net8.0/Serilog.Sinks.File.dll
