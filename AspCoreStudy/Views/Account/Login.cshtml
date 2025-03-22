@@ -1,8 +1,11 @@
 @model AspCoreStudy.Models.User
 
 @{
+    Layout = null;
     ViewData["Title"] = "登录";
 }
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 350px; border-radius: 12px;">
@@ -28,6 +31,13 @@
     </div>
 </div>
 
-<script src="/lib/jquery/dist/jquery.min.js"></script>
-<script src="/js/ajaxHelper.js"></script>
-<script src="/js/login.js"></script>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2025 - AspCoreStudy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/ajaxHelper.js"></script>
+<script src="~/js/login.js"></script>

@@ -24,12 +24,6 @@ namespace AspCoreStudy.Repositories
         }
 
         /// <inheritdoc/>
-        public async Task<User> GetUserByUsernameAsync(string username, string password)
-        {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password);
-        }
-
-        /// <inheritdoc/>
         public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);

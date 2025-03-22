@@ -1,19 +1,26 @@
 $(document).ready(function () {
-    $('#loginForm').submit(function (event) {
+    $('#registerForm').submit(function (event) {
         event.preventDefault();
 
         const username = $('#username').val();
         const password = $('#password').val();
+        const email = $('#email').val();
+
+         const requestData = {
+            username: username,
+            passwordHash: password
+        };
+
+        if (email) 
+            requestData.email = email;
 
         sendAjaxRequest(
-            '/api/accountapi/login',
+            '/api/accountapi/register',
             'POST',
-            { username: username, passwordHash: password },
+            requestData,
             function (response) {
-                const token = response.token;
-                localStorage.setItem('token', token);
-                alert('登录成功');
-                window.location.href = '/Home/Index';
+                alert('注册成功');
+                window.location.href = '/Account/Login';
             },
             function (xhr) {
                 const errors = xhr.responseJSON?.errors;
@@ -26,6 +33,7 @@ $(document).ready(function () {
                     });
                     alert('\n' + errorMessages.join('\n'));
                 }
-            });
+            }
+        );
     });
 });

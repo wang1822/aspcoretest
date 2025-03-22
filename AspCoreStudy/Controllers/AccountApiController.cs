@@ -20,23 +20,19 @@ namespace AspCoreStudy.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(User user)
         {
-            // 检查用户名是否已存在
-            var existingUser = await _userService.FetchUserByUsernameAsync(user.Username);
-            if (existingUser != null)
-            {
-                return Conflict("用户名已存在");
-            }
+            //检查用户名是否已存在
+            await _userService.FetchUserByUsernameAsync(user.Username);
+
+            // 获取 user 角色
+            Role userRole = await _roleService.FetchRoleByNameAsync("User");
 
             // 创建新用户
             await _userService.CreateAsync(user);
 
-            // 获取 user 角色
-            Role userRole = await _roleService.FetchRoleByNameAsync("user");
-
             // 赋予 user 角色
             await _userService.AssignRoleToUserAsync(user.Id, userRole.Id);
 
-            return CreatedAtAction(nameof(Login), new { username = user.Username }, user);
+            return Ok();
         }
 
         /// <summary>

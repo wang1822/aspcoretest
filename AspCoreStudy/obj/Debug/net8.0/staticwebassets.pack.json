@@ -13,12 +13,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\_layout.js",
+      "PackagePath": "staticwebassets\\js\\_layout.js"
+    },
+    {
       "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\ajaxHelper.js",
       "PackagePath": "staticwebassets\\js\\ajaxHelper.js"
     },
     {
       "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
+    },
+    {
+      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\parseJwt.js",
+      "PackagePath": "staticwebassets\\js\\parseJwt.js"
+    },
+    {
+      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\register.js",
+      "PackagePath": "staticwebassets\\js\\register.js"
     },
     {
       "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\site.js",

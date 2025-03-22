@@ -251,3 +251,4 @@ D:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\bin\Debug\net8.0\Swashbuckle.A
 D:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\obj\Debug\net8.0\AspCoreStudy.MvcApplicationPartsAssemblyInfo.cs
+d:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\obj\Debug\net8.0\AspCoreStudy.sourcelink.json

@@ -46,20 +46,6 @@
             </summary>
             <returns>The registration view.</returns>
         </member>
-        <member name="M:AspCoreStudy.Controllers.AccountController.Register(AspCoreStudy.Models.User)">
-            <summary>
-            通过创建新用户并分配默认角色来处理用户注册。
-            </summary>
-            <param name="user">The user object containing registration details.</param>
-            <returns>A view for the registration page or a redirect to the login page upon success.</returns>
-        </member>
-        <member name="M:AspCoreStudy.Controllers.AccountController.Login(AspCoreStudy.Models.User)">
-            <summary>
-            通过验证凭据并生成令牌来处理用户登录。
-            </summary>
-            <param name="user">The user object containing login details.</param>
-            <returns>A view for the login page or a redirect to the home page upon success.</returns>
-        </member>
         <member name="T:AspCoreStudy.GlobalExceptionFilter">
             <summary>
             一个全局异常过滤器，用于处理异常并显示错误视图。
@@ -128,14 +114,6 @@
             <summary>
             用户存储库操作的接口。
             </summary>
-        </member>
-        <member name="M:AspCoreStudy.Repositories.IUserRepository.GetUserByUsernameAsync(System.String,System.String)">
-            <summary>
-            根据用户名和密码检索用户。
-            </summary>
-            <param name="username">用户的用户名。</param>
-            <param name="password">用户的密码。</param>
-            <returns>表示异步操作的任务。任务结果包含用户。</returns>
         </member>
         <member name="M:AspCoreStudy.Repositories.IUserRepository.GetUserByUsernameAsync(System.String)">
             <summary>
@@ -206,9 +184,6 @@
             <inheritdoc/>
         </member>
         <member name="M:AspCoreStudy.Repositories.UserRepository.AssignRoleAsync(System.Int32,System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AspCoreStudy.Repositories.UserRepository.GetUserByUsernameAsync(System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:AspCoreStudy.Repositories.UserRepository.GetUserByUsernameAsync(System.String)">

@@ -11,7 +11,13 @@ namespace AspCoreStudy.Services
         /// <inheritdoc/>
         public async Task<Role> FetchRoleByNameAsync(string roleName)
         {
-            return await _roleRepository.GetRoleByNameAsync(roleName);
+
+            Role role = await _roleRepository.GetRoleByNameAsync(roleName);
+
+            if (role == null)
+                throw new CustomException("角色不存在");
+
+            return role;
         }
     }
 }

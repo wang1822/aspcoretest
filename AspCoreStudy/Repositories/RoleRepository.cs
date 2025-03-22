@@ -9,8 +9,7 @@ namespace AspCoreStudy.Repositories
         /// <ihneritdoc />
         public async Task<Role> GetRoleByNameAsync(string roleName)
         {
-            return await _dbSet.FirstOrDefaultAsync(r => r.Name == roleName) 
-                   ?? throw new InvalidOperationException($"未找到名称为“{roleName}”的角色。");
+            return await _dbSet.FirstOrDefaultAsync(r => r.Name == roleName);
         }
     }
 }

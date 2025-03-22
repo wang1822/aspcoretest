@@ -17,13 +17,13 @@ namespace AspCoreStudy.Services
         /// <inheritdoc/>
         public async Task<User> AuthenticateUserAsync(string username, string password)
         {
-            User user = await _userRepository.GetUserByUsernameAsync(username, password);
+            User user = await _userRepository.GetUserByUsernameAsync(username);
 
             if (user == null)
-                throw new UnauthorizedAccessException("密码或账号错误");
+                throw new CustomException("密码或账号错误");
 
             if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-                throw new UnauthorizedAccessException("密码或账号错误");
+                throw new CustomException("密码或账号错误");
 
             return user;
         }
@@ -48,7 +48,7 @@ namespace AspCoreStudy.Services
             User user = await _userRepository.GetUserByUsernameAsync(username);
 
             if(user != null)
-                throw new UnauthorizedAccessException("用户已存在");
+                throw new CustomException("用户已存在");
 
             return user;
         }
