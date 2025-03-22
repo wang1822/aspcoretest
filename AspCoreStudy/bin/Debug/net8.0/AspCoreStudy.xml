@@ -4,6 +4,20 @@
         <name>AspCoreStudy</name>
     </assembly>
     <members>
+        <member name="M:AspCoreStudy.Controllers.AccountApiController.Register(AspCoreStudy.Models.User)">
+            <summary>
+            通过创建新用户并分配默认角色来处理用户注册。
+            </summary>
+            <param name="user">The user object containing registration details.</param>
+            <returns>A response indicating the success or failure of the registration.</returns>
+        </member>
+        <member name="M:AspCoreStudy.Controllers.AccountApiController.Login(AspCoreStudy.Models.User)">
+            <summary>
+            通过验证凭据并生成令牌来处理用户登录。
+            </summary>
+            <param name="user">The user object containing login details.</param>
+            <returns>A response containing a token if login is successful.</returns>
+        </member>
         <member name="T:AspCoreStudy.Controllers.AccountController">
             <summary>
             用于管理用户账户的控制器，包括登录和注册。

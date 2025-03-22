@@ -8,6 +8,9 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddEndpointsApiExplorer();  // 必须添加的服务
+builder.Services.AddSwaggerGen();  // 注册 Swagger 生成器
+
 //使用 Autofac 作为依赖注入容器
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
@@ -45,6 +48,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddControllersWithViews(options =>
 {
+    options.Filters.Add<ValidateModelStateFilter>(); // 注册统一处理 ModelState 验证的过滤器
     options.Filters.Add<GlobalExceptionFilter>(); // 注册全局异常过滤器
 });
 
@@ -56,8 +60,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
@@ -70,12 +73,15 @@ var app = builder.Build();
 //     Console.WriteLine($"Service: {registration.Activator.LimitType}");
 // }
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger(); // 启用 Swagger JSON 生成
+    app.UseSwaggerUI(options =>
+    {
+        // 配置 Swagger UI，选择 Swagger JSON 文档
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        options.RoutePrefix = "swagger";  // Swagger UI 的路由前缀
+    });
 }
 
 app.UseHttpsRedirection();

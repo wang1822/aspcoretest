@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AspCoreStudy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8331a273ff7918411984a571d92550ce36f1db1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+957449e2fa34da630da88a7478a5de6bee401f83")]
 [assembly: System.Reflection.AssemblyProductAttribute("AspCoreStudy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AspCoreStudy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

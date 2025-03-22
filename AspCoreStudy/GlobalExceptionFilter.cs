@@ -29,18 +29,18 @@ namespace AspCoreStudy
             // 记录异常到日志文件
             _logger.LogError(exception, "全局异常捕获：{Message}", errorMessage);
 
-            // 这里我们设置 ViewData["ErrorMessage"]，用于在 View 中弹窗
-            var result = new ViewResult
+            // 创建一个包含错误信息的响应对象
+            var errorResponse = new
             {
-                ViewName = "Error",
-                ViewData = new Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary(
-                    new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(),
-                    context.ModelState)
+                Success = false,
+                ErrorMessage = errorMessage
             };
 
-            result.ViewData["ErrorMessage"] = errorMessage;
-
-            context.Result = result;
+            // 设置返回的 JSON 格式的响应
+            context.Result = new JsonResult(errorResponse)
+            {
+                StatusCode = 500  // 你可以根据具体的异常类型设置不同的状态码
+            };
             context.ExceptionHandled = true; // 标记异常已处理
         }
     }
