@@ -5,6 +5,11 @@ using Autofac.Extensions.DependencyInjection;
 using AspCoreStudy.Services;
 using AspCoreStudy;
 using Serilog;
+using AspCoreStudy.Authorization;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +19,9 @@ builder.Services.AddSwaggerGen();  // 注册 Swagger 生成器
 //使用 Autofac 作为依赖注入容器
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
+// 从配置中获取 SecretKey
+var secretKey = builder.Configuration["TokenSettings:SecretKey"];
+
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     // 扫描并注册 Repositories 和 Services 文件夹中的接口和实现类
@@ -22,9 +30,6 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
                     || t.Namespace.Contains("AspCoreStudy.Services")))
                     .AsImplementedInterfaces()
                     .InstancePerLifetimeScope();  // 设置生命周期（你也可以使用 InstancePerDependency() 或 SingleInstance()）
-
-    // 从配置中获取 SecretKey
-    var secretKey = builder.Configuration["TokenSettings:SecretKey"];
 
     // 注册 TokenService
     _ = containerBuilder.RegisterType<TokenService>()
@@ -61,6 +66,31 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 builder.Services.AddHttpClient();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "your-issuer",
+            ValidAudience = "your-audience",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        };
+    });
+
+// 添加授权服务
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ViewPage", policy =>
+        policy.Requirements.Add(new PermissionRequirement("ViewPage")));
+});
+
+// 注册自定义授权处理程序
+builder.Services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
 
 var app = builder.Build();
 

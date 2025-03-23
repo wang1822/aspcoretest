@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "neyJ6HwJmM//W+qJvBsydC2H9idonJBZFfECQpxyLyI=",
+  "Hash": "GINcyYE+mepBGVzFP2VeKDAvex0SsJcrk33ImSGqLCM=",
   "Source": "AspCoreStudy",
   "BasePath": "_content/AspCoreStudy",
   "Mode": "Default",
@@ -131,6 +131,25 @@
       "OriginalItemSpec": "wwwroot\\js\\ajaxHelper.js"
     },
     {
+      "Identity": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\auth.js",
+      "SourceId": "AspCoreStudy",
+      "SourceType": "Discovered",
+      "ContentRoot": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\",
+      "BasePath": "_content/AspCoreStudy",
+      "RelativePath": "js/auth.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\auth.js"
+    },
+    {
       "Identity": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\login.js",
       "SourceId": "AspCoreStudy",
       "SourceType": "Discovered",
@@ -148,25 +167,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login.js"
-    },
-    {
-      "Identity": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\parseJwt.js",
-      "SourceId": "AspCoreStudy",
-      "SourceType": "Discovered",
-      "ContentRoot": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\",
-      "BasePath": "_content/AspCoreStudy",
-      "RelativePath": "js/parseJwt.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\parseJwt.js"
     },
     {
       "Identity": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\register.js",

@@ -30,17 +30,19 @@
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
-                                style="width: 50px; height: 50px; opacity: 0.9;">
+                                style="width: 40px; height: 40px; opacity: 0.9;">
                                 <span id="usernameDisplay"></span>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="/Account/ChangePassword">修改密码</a></li>
                             <li><a class="dropdown-item" href="/Account/UserInfo">用户信息</a></li>
-                            <li><a class="dropdown-item" href="/Admin/Index">管理后台</a></li>
+                            <li id="userManagementItem"><a class="dropdown-item" asp-area="" asp-controller="Backstage" asp-action="Usermanagement">用户管理</a></li>
+                            <li id="logViewItem"><a class="dropdown-item" href="/Admin/Index">日志查看</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li class="dropdown-item" id="themeToggle">白天/黑天</li>
                             <li><a class="dropdown-item" href="/Account/Logout">退出登录</a></li>
                         </ul>
                     </div>
@@ -59,8 +61,8 @@
             &copy; 2025 - AspCoreStudy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="~/js/auth.js"></script>
     <script src="~/js/_layout.js"></script>
-    <script src="~/js/parseJwt.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

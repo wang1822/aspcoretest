@@ -27,6 +27,11 @@ namespace AspCoreStudy.Services
         /// </summary>
         /// <param name="user">要创建的用户对象。</param>
         Task CreateAsync(User user);
+        /// <summary>
+        /// 异步获取所有用户。
+        /// </summary>
+        /// <returns>返回包含所有用户的用户对象。</returns>
+        Task<List<User>> FetchAllUsersAsync();
 
         /// <summary>
         /// 异步获取指定用户的权限列表。

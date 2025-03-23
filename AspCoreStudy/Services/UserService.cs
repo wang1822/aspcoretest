@@ -37,6 +37,12 @@ namespace AspCoreStudy.Services
         }
 
         /// <inheritdoc/>
+        public async Task<List<User>> FetchAllUsersAsync()
+        {
+            return (List<User>)await _userRepository.GetAllAsync();
+        }
+
+        /// <inheritdoc/>
         public async Task<List<string>> FetchPermissionsForUserAsync(int userId)
         {
             return await _userRepository.GetUserPermissionsAsync(userId);
@@ -47,7 +53,7 @@ namespace AspCoreStudy.Services
         {
             User user = await _userRepository.GetUserByUsernameAsync(username);
 
-            if(user != null)
+            if (user != null)
                 throw new CustomException("用户已存在");
 
             return user;

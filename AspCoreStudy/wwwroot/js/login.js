@@ -6,7 +6,7 @@ $(document).ready(function () {
         const password = $('#password').val();
 
         sendAjaxRequest(
-            '/api/accountapi/login',
+            '/api/v1/accountapi/login',
             'POST',
             { username: username, passwordHash: password },
             function (response) {

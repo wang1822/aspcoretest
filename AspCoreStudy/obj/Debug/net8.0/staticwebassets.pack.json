@@ -21,12 +21,12 @@
       "PackagePath": "staticwebassets\\js\\ajaxHelper.js"
     },
     {
-      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\login.js",
-      "PackagePath": "staticwebassets\\js\\login.js"
+      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\auth.js",
+      "PackagePath": "staticwebassets\\js\\auth.js"
     },
     {
-      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\parseJwt.js",
-      "PackagePath": "staticwebassets\\js\\parseJwt.js"
+      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
       "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\register.js",

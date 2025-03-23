@@ -12,3 +12,14 @@ function parseJwt(token) {
         return null;
     }
 }
+
+function checkAuthentication() {
+    let token = localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "/Account/Login";
+        return false;
+    }
+
+    return parseJwt(token);
+}

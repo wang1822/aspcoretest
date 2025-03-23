@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AspCoreStudy.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ValidateModelStateFilter] 
     public class AccountApiController(IUserService userService, IRoleService roleService, TokenService tokenService) : ControllerBase
     {

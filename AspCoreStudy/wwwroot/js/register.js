@@ -15,7 +15,7 @@ $(document).ready(function () {
             requestData.email = email;
 
         sendAjaxRequest(
-            '/api/accountapi/register',
+            '/api/v1/accountapi/register',
             'POST',
             requestData,
             function (response) {

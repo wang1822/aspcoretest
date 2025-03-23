@@ -16,3 +16,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode table td,
+body.dark-mode table th {
+    color: #ffffff;
+}
+
+body.dark-mode .navbar
+{
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .nav-link ,
+body.dark-mode .navbar-brand
+{
+  color: #ffffff !important;
+}

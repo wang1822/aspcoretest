@@ -46,6 +46,35 @@
             </summary>
             <returns>The registration view.</returns>
         </member>
+        <member name="T:AspCoreStudy.Controllers.BackStageApiController">
+            <summary>
+            后台 API 操作的控制器。  
+            </summary>  
+            <param name="userService">用于用户相关操作的服务。</param>  
+        </member>
+        <member name="M:AspCoreStudy.Controllers.BackStageApiController.#ctor(AspCoreStudy.Services.IUserService)">
+            <summary>
+            后台 API 操作的控制器。  
+            </summary>  
+            <param name="userService">用于用户相关操作的服务。</param>  
+        </member>
+        <member name="M:AspCoreStudy.Controllers.BackStageApiController.QueryUsers">
+            <summary>
+            从系统中查询所有用户。
+            </summary>
+            <returns>包含用户列表的 IActionResult。</returns>
+        </member>
+        <member name="T:AspCoreStudy.Controllers.BackStageController">
+            <summary>
+            用于管理后台操作的控制器。
+            </summary>
+        </member>
+        <member name="M:AspCoreStudy.Controllers.BackStageController.Usermanagement">
+            <summary>
+            显示用户管理视图。
+            </summary>
+            <returns>用户管理视图。</returns>
+        </member>
         <member name="T:AspCoreStudy.GlobalExceptionFilter">
             <summary>
             一个全局异常过滤器，用于处理异常并显示错误视图。
@@ -230,6 +259,12 @@
             </summary>
             <param name="user">要创建的用户对象。</param>
         </member>
+        <member name="M:AspCoreStudy.Services.IUserService.FetchAllUsersAsync">
+            <summary>
+            异步获取所有用户。
+            </summary>
+            <returns>返回包含所有用户的用户对象。</returns>
+        </member>
         <member name="M:AspCoreStudy.Services.IUserService.FetchPermissionsForUserAsync(System.Int32)">
             <summary>
             异步获取指定用户的权限列表。
@@ -284,6 +319,9 @@
             <inheritdoc/>
         </member>
         <member name="M:AspCoreStudy.Services.UserService.CreateAsync(AspCoreStudy.Models.User)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AspCoreStudy.Services.UserService.FetchAllUsersAsync">
             <inheritdoc/>
         </member>
         <member name="M:AspCoreStudy.Services.UserService.FetchPermissionsForUserAsync(System.Int32)">
