@@ -17,51 +17,51 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AspCoreStudy
 build_property.RootNamespace = AspCoreStudy
-build_property.ProjectDir = d:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\
+build_property.ProjectDir = D:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy
+build_property.MSBuildProjectDirectory = D:\AspNetCoreStudy\Linux_Asp.netCore\AspCoreStudy
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Account/Login.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Account/Register.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Backstage/Usermanagement.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Backstage/Usermanagement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja3N0YWdlXFVzZXJtYW5hZ2VtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Home/Index.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Home/Privacy.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Shared/Error.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/_ViewImports.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/_ViewStart.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Shared/_Layout.cshtml]
+[D:/AspNetCoreStudy/Linux_Asp.netCore/AspCoreStudy/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-yynsdacxgq

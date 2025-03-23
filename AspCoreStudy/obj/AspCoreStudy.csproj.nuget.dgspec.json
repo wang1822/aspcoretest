@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj": {}
+    "D:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj": {}
   },
   "projects": {
-    "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj": {
+    "D:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj",
+        "projectUniqueName": "D:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj",
         "projectName": "AspCoreStudy",
-        "projectPath": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj",
+        "projectPath": "D:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\AspCoreStudy.csproj",
         "packagesPath": "C:\\Users\\18228\\.nuget\\packages\\",
-        "outputPath": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\obj\\",
+        "outputPath": "D:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\18228\\AppData\\Roaming\\NuGet\\NuGet.Config"
