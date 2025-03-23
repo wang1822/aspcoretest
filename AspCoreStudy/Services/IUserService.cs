@@ -21,6 +21,11 @@ namespace AspCoreStudy.Services
         /// <param name="password">用户的密码。</param>
         /// <returns>返回验证成功的用户对象。</returns>
         Task<User> AuthenticateUserAsync(string username, string password);
+        /// <summary>
+        /// 异步统计符合条件的用户总数。
+        /// </summary>
+        /// <returns>返回符合条件的用户总数。</returns>
+        Task<int> CountAllUsersAsync();
 
         /// <summary>
         /// 异步创建一个新的用户。
@@ -31,7 +36,7 @@ namespace AspCoreStudy.Services
         /// 异步获取所有用户。
         /// </summary>
         /// <returns>返回包含所有用户的用户对象。</returns>
-        Task<List<User>> FetchAllUsersAsync();
+        Task<List<User>> FetchAllUsersAsync(string username, int page, int pageSize);
 
         /// <summary>
         /// 异步获取指定用户的权限列表。

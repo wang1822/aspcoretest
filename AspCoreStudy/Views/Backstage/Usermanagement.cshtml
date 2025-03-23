@@ -4,6 +4,12 @@
 
 <h1>用户管理</h1>
 
+<div class="d-flex justify-content-end mb-3">
+    <input type="text" id="searchUsername" class="form-control me-2" placeholder="请输入用户名" style="width: 200px;" />
+    <button class="btn btn-primary" id="searchButton">搜索</button>
+    <button class="btn btn-secondary" id="refreshButton">刷新</button>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -17,6 +23,16 @@
         <!-- 用户数据将通过 JavaScript 动态加载 -->
     </tbody>
 </table>
+<div id="paginationContainer" class="d-flex justify-content-center align-items-center mt-3">
+    <!-- 分页按钮容器 -->
+    <div id="pagination" class="d-flex"></div>
+
+    <!-- 跳转到指定页 -->
+    <div class="d-flex align-items-center ms-3">
+        <input type="number" id="jumpToPageInput" class="form-control me-2" placeholder="页码" style="width: 100px;" min="1" />
+        <button class="btn btn-primary" id="jumpToPageButton">跳转</button>
+    </div>
+</div>
 
 <!-- 删除确认模态框 -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -42,77 +58,4 @@
 </div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        let userIdToDelete = null;
-
-const token = localStorage.getItem("token");
-        // 获取用户数据并渲染表格
-        function loadUsers() {
-            $.ajax({
-                url: '/api/v1/backstageapi/users',
-                type: 'GET',
-headers: token ? { "Authorization": `Bearer ${token}` } : {},
-                success: function (data) {
-                    const userTableBody = $('#userTableBody');
-                    userTableBody.empty(); // 清空表格内容
-
-                    data.forEach(user => {
-                        const row = `
-                            <tr>
-                                <td>${user.username}</td>
-                                <td>${user.email}</td>
-                                <td>${user.role}</td>
-                                <td>
-                                    <a class="btn btn-primary btn-sm" href="/Backstage/Edit/${user.id}">编辑</a>
-                                    <button class="btn btn-danger btn-sm delete-user-btn" data-user-id="${user.id}" data-username="${user.username}">删除</button>
-                                </td>
-                            </tr>
-                        `;
-                        userTableBody.append(row);
-                    });
-
-                    // 绑定删除按钮事件
-                    $('.delete-user-btn').on('click', function () {
-                        userIdToDelete = $(this).data('user-id');
-                        const username = $(this).data('username');
-                        $('#modalUsername').text(username);
-                        $('#deleteModal').modal('show');
-                    });
-                },
-                error: function () {
-                    alert('无法加载用户数据，请稍后重试！');
-                }
-            });
-        }
-
-        // 加载用户数据
-        loadUsers();
-
-        // 确认删除按钮点击事件
-        $('#confirmDeleteButton').on('click', function () {
-            const adminPassword = $('#adminPassword').val();
-
-            if (!adminPassword) {
-                alert('请输入管理员密码！');
-                return;
-            }
-
-            // 发起删除请求
-            $.ajax({
-                url: `/api/v1/backstage/users/${userIdToDelete}`,
-                type: 'DELETE',
-                contentType: 'application/json',
-                data: JSON.stringify({ password: adminPassword }),
-                success: function () {
-                    alert('用户删除成功！');
-                    $('#deleteModal').modal('hide');
-                    loadUsers(); // 重新加载用户数据
-                },
-                error: function () {
-                    alert('删除失败，请检查密码是否正确！');
-                }
-            });
-        });
-    });
-</script>
+<script src="~/js/usermanagement.js"></script>

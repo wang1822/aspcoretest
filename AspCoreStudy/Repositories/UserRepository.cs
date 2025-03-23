@@ -24,6 +24,27 @@ namespace AspCoreStudy.Repositories
         }
 
         /// <inheritdoc/>
+        public async Task<int> CountAllUsersAsnyc()
+        {
+            var users = await GetAllAsync();
+            return users.Count();
+        }
+
+        /// <inheritdoc/>
+        public async Task<List<User>> GetAllUserAsync(int page, int pageSize)
+        {
+            var users = await GetAllAsync();
+            return [.. users.Skip((page - 1) * pageSize).Take(pageSize)];
+        }
+
+        /// <inheritdoc/>
+        public async Task<List<User>> GetAllUserByUserNameAsync(string userName, int page, int pageSize)
+        {
+            var users = await GetAllAsync();
+            return [.. users.Where(u => u.Username == userName).Skip((page - 1) * pageSize).Take(pageSize)];
+        }
+
+        /// <inheritdoc/>
         public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.Username == username);

@@ -29,6 +29,12 @@ namespace AspCoreStudy.Services
         }
 
         /// <inheritdoc/>
+        public async Task<int> CountAllUsersAsync()
+        {
+            return await _userRepository.CountAllUsersAsnyc();
+        }
+
+        /// <inheritdoc/>
         public async Task CreateAsync(User user)
         {
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash); // 使用 BCrypt 哈希密码
@@ -37,9 +43,12 @@ namespace AspCoreStudy.Services
         }
 
         /// <inheritdoc/>
-        public async Task<List<User>> FetchAllUsersAsync()
+        public async Task<List<User>> FetchAllUsersAsync(string username, int page, int pageSize)
         {
-            return (List<User>)await _userRepository.GetAllAsync();
+            if (!string.IsNullOrEmpty(username))
+                return await _userRepository.GetAllUserByUserNameAsync(username, page, pageSize);
+            else
+                return await _userRepository.GetAllUserAsync(page, pageSize);
         }
 
         /// <inheritdoc/>

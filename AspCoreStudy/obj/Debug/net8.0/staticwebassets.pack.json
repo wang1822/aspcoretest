@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\usermanagement.js",
+      "PackagePath": "staticwebassets\\js\\usermanagement.js"
+    },
+    {
       "Id": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

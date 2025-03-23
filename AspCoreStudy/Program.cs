@@ -87,6 +87,12 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ViewPage", policy =>
         policy.Requirements.Add(new PermissionRequirement("ViewPage")));
+    options.AddPolicy("Management", policy =>
+        policy.Requirements.Add(new PermissionRequirement("Management")));
+    options.AddPolicy("EditPage", policy =>
+        policy.Requirements.Add(new PermissionRequirement("EditPage")));
+    options.AddPolicy("DelePage", policy =>
+        policy.Requirements.Add(new PermissionRequirement("DelePage")));
 });
 
 // 注册自定义授权处理程序

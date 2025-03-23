@@ -27,12 +27,21 @@ namespace AspCoreStudy.Controllers
         /// </summary>
         /// <returns>包含用户列表的 IActionResult。</returns>
         [HttpGet("users")]
-        [Authorize(Policy = "ViewPage")]
-        public async Task<IActionResult> QueryUsers()
+        [Authorize(Policy = "Management")]
+        public async Task<IActionResult> QueryUsers(string username = "", int page = 1, int pageSize = 10)
         {
-            List<User> users = await _userService.FetchAllUsersAsync();
+            List<User> users = await _userService.FetchAllUsersAsync(username, page, pageSize);
 
-            return Ok(users);
+            int total = await _userService.CountAllUsersAsync();
+
+            return Ok(
+                new
+                {
+                    TotalCount = total,
+                    Page = page,
+                    PageSize = pageSize,
+                    Data = users
+                });
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GINcyYE+mepBGVzFP2VeKDAvex0SsJcrk33ImSGqLCM=",
+  "Hash": "DW+ndCBnZpY4fLq7f/i2kk7Yw+7UOzDXsFCCua3pBpc=",
   "Source": "AspCoreStudy",
   "BasePath": "_content/AspCoreStudy",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\js\\usermanagement.js",
+      "SourceId": "AspCoreStudy",
+      "SourceType": "Discovered",
+      "ContentRoot": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\",
+      "BasePath": "_content/AspCoreStudy",
+      "RelativePath": "js/usermanagement.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\usermanagement.js"
     },
     {
       "Identity": "d:\\AspNetCoreStudy\\Linux_Asp.netCore\\AspCoreStudy\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

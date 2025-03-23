@@ -58,7 +58,7 @@
             </summary>  
             <param name="userService">用于用户相关操作的服务。</param>  
         </member>
-        <member name="M:AspCoreStudy.Controllers.BackStageApiController.QueryUsers">
+        <member name="M:AspCoreStudy.Controllers.BackStageApiController.QueryUsers(System.String,System.Int32,System.Int32)">
             <summary>
             从系统中查询所有用户。
             </summary>
@@ -166,6 +166,29 @@
             <param name="userId">用户的ID。</param>
             <returns>表示异步操作的任务。任务结果包含用户的权限列表。</returns>
         </member>
+        <member name="M:AspCoreStudy.Repositories.IUserRepository.GetAllUserAsync(System.Int32,System.Int32)">
+            <summary>
+            获取分页的用户列表。
+            </summary>
+            <param name="page">页码。</param>
+            <param name="pageSize">每页的用户数量。</param>
+            <returns>表示异步操作的任务。任务结果包含用户列表。</returns>
+        </member>
+        <member name="M:AspCoreStudy.Repositories.IUserRepository.GetAllUserByUserNameAsync(System.String,System.Int32,System.Int32)">
+            <summary>
+            根据用户名获取分页的用户列表。
+            </summary>
+            <param name="userName">用户的用户名。</param>
+            <param name="page">页码。</param>
+            <param name="pageSize">每页的用户数量。</param>
+            <returns>表示异步操作的任务。任务结果包含用户列表。</returns>
+        </member>
+        <member name="M:AspCoreStudy.Repositories.IUserRepository.CountAllUsersAsnyc">
+            <summary>
+            获取用户总数。
+            </summary>
+            <returns>表示异步操作的任务。任务结果包含用户总数。</returns>
+        </member>
         <member name="T:AspCoreStudy.Repositories.Repository`1">
             <inheritdoc />
         </member>
@@ -215,6 +238,15 @@
         <member name="M:AspCoreStudy.Repositories.UserRepository.AssignRoleAsync(System.Int32,System.Int32)">
             <inheritdoc/>
         </member>
+        <member name="M:AspCoreStudy.Repositories.UserRepository.CountAllUsersAsnyc">
+            <inheritdoc/>
+        </member>
+        <member name="M:AspCoreStudy.Repositories.UserRepository.GetAllUserAsync(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AspCoreStudy.Repositories.UserRepository.GetAllUserByUserNameAsync(System.String,System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
         <member name="M:AspCoreStudy.Repositories.UserRepository.GetUserByUsernameAsync(System.String)">
             <inheritdoc/>
         </member>
@@ -253,13 +285,19 @@
             <param name="password">用户的密码。</param>
             <returns>返回验证成功的用户对象。</returns>
         </member>
+        <member name="M:AspCoreStudy.Services.IUserService.CountAllUsersAsync">
+            <summary>
+            异步统计符合条件的用户总数。
+            </summary>
+            <returns>返回符合条件的用户总数。</returns>
+        </member>
         <member name="M:AspCoreStudy.Services.IUserService.CreateAsync(AspCoreStudy.Models.User)">
             <summary>
             异步创建一个新的用户。
             </summary>
             <param name="user">要创建的用户对象。</param>
         </member>
-        <member name="M:AspCoreStudy.Services.IUserService.FetchAllUsersAsync">
+        <member name="M:AspCoreStudy.Services.IUserService.FetchAllUsersAsync(System.String,System.Int32,System.Int32)">
             <summary>
             异步获取所有用户。
             </summary>
@@ -318,10 +356,13 @@
         <member name="M:AspCoreStudy.Services.UserService.AuthenticateUserAsync(System.String,System.String)">
             <inheritdoc/>
         </member>
+        <member name="M:AspCoreStudy.Services.UserService.CountAllUsersAsync">
+            <inheritdoc/>
+        </member>
         <member name="M:AspCoreStudy.Services.UserService.CreateAsync(AspCoreStudy.Models.User)">
             <inheritdoc/>
         </member>
-        <member name="M:AspCoreStudy.Services.UserService.FetchAllUsersAsync">
+        <member name="M:AspCoreStudy.Services.UserService.FetchAllUsersAsync(System.String,System.Int32,System.Int32)">
             <inheritdoc/>
         </member>
         <member name="M:AspCoreStudy.Services.UserService.FetchPermissionsForUserAsync(System.Int32)">
